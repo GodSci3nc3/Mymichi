@@ -1,0 +1,493 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Kiwi Maru', sans-serif;
+    color: #55589E;
+    background: linear-gradient(to bottom, #FFE8EE, #E998C9);
+    max-height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.border {
+    background-color: #E998C9;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 65px;
+
+    width: 100vw;
+}
+
+.navbar {
+    background-color: #FFE8EE;
+    max-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 60px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0; 
+    padding: 0;
+}
+
+.navbar ul li {
+    display: flex;
+    border-radius: 35px;
+    align-items: center;
+    margin-right: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.navbar ul li:last-child {
+    margin-right: 0;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #55589E;
+    font-weight: bold;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+.navbar ul li:hover {
+    background-color: #E998C9;
+}
+
+.navbar img {
+    margin-top: 5px;
+}
+
+.search-bar {
+ 
+    background-color: #E998C9;
+    border-radius: 505px;
+    
+}
+
+.search-bar input {
+    background: none;
+    border: none;
+    width: 60vh;
+    padding: 10px;
+    outline: none;
+
+}
+.search-results {
+    position: absolute;
+    z-index: 100;
+    width: 60vh;
+    background-color: #FFF2FA;
+    border-radius: 5px;
+    border-top: none;
+    
+    display: none;
+    flex-direction: column;
+    height: auto;
+
+
+    animation: slide-down 0.2s ease-in-out;
+  }
+
+
+.info-result {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.info-result h3 {
+    margin-left: 10px;
+}
+
+.search-bar button {
+    background-color: #E998C9;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 100px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.profile {
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-between;
+
+
+    margin-right: 50px;
+
+    max-width: max-content;
+    max-height: min-content;
+
+}
+
+.profile img {
+    margin-top: 25%;
+}
+
+
+.scrollable {
+    width: fit-content;
+    max-height: 80vh;
+
+
+    margin: 50px;
+
+    align-items: center;
+
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    overflow: auto;
+    scrollbar-width: none; /* Este se usa en navegadores Gecko */
+    -ms-overflow-style: none; /* Y este en navegadores como Internet Explorer */
+    
+    
+
+}
+/* Para navegadores como Chrome y Safari*/
+.scrollable::-webkit-scrollbar {
+    display: none;
+}
+
+
+.goPublish {
+    background-color: #FFF2FA;
+    
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+
+    border-top: 30px solid #E998C9;
+    border-radius: 25px;
+
+    
+    margin-top: 10px;
+    
+    width: 59%;
+    height: 50%;
+
+    padding: 5px;
+
+    cursor: pointer;    
+
+    margin: 0 auto;
+}
+
+.createPublishContent {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+
+    background-color: #FFE8EE;
+    animation: fadeIn 0.3s ease-in-out;
+
+
+
+}
+
+.createPublishContent span {
+    cursor: pointer;
+}
+
+#createMyPublish {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    padding: 5px;
+}
+
+#createMyPublish label {
+    font-size: 25px;
+}
+#createMyPublish input, textarea, select {
+    background-color: #E998C9;
+    border-radius: 15px;
+    border: none;
+
+    min-height: 3vh;
+
+    outline: none;
+    
+    padding-left: 5px;
+
+}
+
+#createMyPublish input[type="submit"]{
+    background-color: #55589E;
+    border-radius: 10px;
+
+    
+
+    padding: 5px;
+
+    width: auto;
+
+    font-size: 25px;
+    color: white;
+    font-family: 'Kiwi Maru';
+}
+
+#createMyPublish input[type="file"] {
+    background-color: transparent;
+}
+
+.advancePublish {    
+    background-color: #55589E;
+    border-radius: 15px;
+
+
+    margin-top: 25px;
+
+    width: 50vw;
+
+    display: flex;
+    
+}
+.advancePublish button {
+    font-size: 35px;
+    font-family: 'Kiwi Maru';
+    color: white;
+
+    background: none;
+
+    border-radius: 15px;
+    border: none;
+
+    padding: 5px;
+    width: 100%;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+
+}
+
+.advancePublish button:hover {
+    background-color: #3d3f72;
+}
+
+.showAdvancePublishContent {
+    display: block !important;
+    animation: fadeInFromTop 0.18s ease-in-out forwards;
+}
+
+.advancePublishContent {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    
+    
+    left: 0;
+    top: 60vh;
+    bottom: 0;
+    right: 0;
+
+    margin: auto;
+
+    width: 35vw;
+    height: 55vh;
+    padding: 20px;
+    background-color: #FFE8EE;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+
+
+}
+
+.advancePublishForm {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 20px;
+}
+
+.advancePublishForm .advanceSearchByText,
+.advancePublishForm .advanceSearchByDates {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.advancePublishForm label {
+    margin-bottom: 3px;
+    font-size: 26px;
+}
+
+.advanceSearchByText input[type="text"]::placeholder {
+    color: #000;
+}
+
+.advancePublishForm input[type="text"],
+.advancePublishForm select,
+.advancePublishForm input[type="date"] {
+    width: calc(50% - 10px);
+    padding: 8px;
+    margin-bottom: 50px;
+    margin-right: 10px;
+    background-color: #E998C9;
+    border: none;
+    border-radius: 25px;
+    box-sizing: border-box;
+}
+
+.advancePublishForm button {
+    background-color: #55589E;
+    font-size: 25px;
+    font-family: 'Kiwi Maru';
+    color: #fff;
+    padding: 5px 15px;
+
+
+
+    width: 20vw;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.advancePublishForm button:hover {
+    background-color: #3d3f72;
+}
+.closeAdvancePublishContent {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 25px;
+    cursor: pointer; 
+}
+
+.publications {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    flex-grow: 1;
+
+    margin-right: 20px;
+    
+    width: 70%;
+
+}
+
+.publication-contents {
+    background-color: #FFF2FA;
+
+    display: flex;
+    flex-direction: column;
+
+    border-top: 30px solid #E998C9;
+    border-bottom: 30px solid #E998C9;
+    border-radius: 5px;
+
+
+    margin-top: 30px;
+    margin-bottom: 25px;
+    
+    border-radius: 25px;
+
+    flex-grow: 1;
+
+    width: 85%;
+    max-height: 800px;
+    height: auto;
+}
+
+.publication-contents h2, p, img, a {
+    margin-left: 25px;
+}
+
+.publication-contents img {
+    transform: translateY(-10px);
+}
+
+.user-publication {
+    display: flex;
+    flex-direction: row;
+
+    margin-top: 20px;
+
+    align-items: center;
+
+}
+.user-publication img {
+    border: 2px solid #55589E;
+    border-radius: 505px;
+}
+
+footer {
+    background-color: #E998C9;
+    width: 100%;
+    
+    font-size: 28px;
+    text-align: center;
+}
+
+
+
+
+  
+@keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(0);
+        transform: translateX(50%);
+
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-60%);
+    }
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main/res/styles/register_styles.css">
+    <script src="/lib/node_modules/lottie-web/build/player/lottie.min.js"></script>
+    <title>Registro - My Michi</title>
+</head>
+<body>
+<div class="container">
+    <div class="register">
+        <div id="pink-cat"></div>
+        <div class="titles">
+            <h1>Registro</h1>
+        </div>
+
+        <!-- Formulario de registro - Seis campos, todos requeridos **Incluir foto** -->
+        <form class="register-form" action="feed_view.html">
+            <div class="input-container">
+            <label for="Nombre" style="font-size: 30px; color: #5F5FA2;">Nombre</label>
+            <input type="text" id="name" name="nombre">
+        </div>
+        <div class="input-container">
+            <label for="Apellido" style="font-size: 30px; color: #5F5FA2;">Apellido</label>
+            <input type="text" id="lastname"  name = "apellido">
+        </div>
+        <div class="input-container">
+            <label for="Fecha de nacimiento" style="font-size: 30px; color: #5F5FA2;">Fecha de nacimiento</label>
+            <input type="date" id="birthday" name="fecha_nacimiento"><br>
+        </div>
+            <div class="input-container">
+            <label for="Correo" style="font-size: 30px; color: #5F5FA2;">Correo</label>
+            <input type="email" id="email"  name = "correo">
+        </div>
+        <div class="input-container">
+            <label for="usuario" style="font-size: 30px; color: #5F5FA2;">Usuario</label>
+            <input type="text" id="username" name="nombre_usuario">
+        </div>
+        <div class="input-container">
+            <label for="contraseña" style="font-size: 30px; color: #5F5FA2;">Contraseña</label>
+            <input type="password" id="password"  name = "contraseña"><br>
+        </div>
+
+            <a class="login-button" href="login_view.html">¿Ya tienes una cuenta? Inicia sesión</a>
+            <div class="btn_send">
+                <input type="submit" value="Ok" style="font-family: 'Kiwi Maru', sans-serif;">
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="main.js"></script>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap">
+<footer>
+    Diseñado y desarrollado por Ximena Rosales Velázquez
+</footer>
+</body>
+</html>
