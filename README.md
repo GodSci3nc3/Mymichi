@@ -4,8 +4,8 @@ MyMichi, a nivel técnico, será un **CRUD profundo**. Además, estoy pensando e
 ## Instrucciones de ejecución 
 **Importante para ti, Pata**
 1. Crear una carpeta en tu escritorio (da igual el nombre)
-2. Entrar a la terminal dándole click derecho en la carpeta y seleccionando 'Abrir en terminal' \n Ó entrar al símbolo de sistema y tipear: 'cd /ruta/de/carpeta/'
-3. Tipear lo siguiente (sin las comillas simples): 1. 'git init' 2. 'git clone https://github.com/GodSci3nc3/MyMichi.git' \n Ó de no contar con git instalado, descargar aquí: 'https://git-scm.com/downloads' y seguir instrucciones al finalizar su instalación
+2. Entrar a la terminal dándole click derecho en la carpeta y seleccionando 'Abrir en terminal' Ó entrar al símbolo de sistema y tipear: 'cd /ruta/de/carpeta/'
+3. Tipear lo siguiente (sin las comillas simples): 1. 'git init' 2. 'git clone https://github.com/GodSci3nc3/MyMichi.git' Ó de no contar con git instalado, descargar aquí: 'https://git-scm.com/downloads' y seguir instrucciones al finalizar su instalación
 4. Al terminar la clonación, abrirlo en vscode
 5. Descargar la extensión (de vscode) llamada 'Live Server'
 6. Abrir cualquier html ubicado en /src/ y seleccionar 'Open Live Server'.
