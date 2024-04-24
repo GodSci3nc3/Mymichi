@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "java.configuration.updateBuildConfiguration": "automatic",
     "sqltools.connections": [
         {
@@ -16,4 +17,7 @@
             "username": "localhost"
         }
     ]
+=======
+    "editor.fontFamily": "'Cascadia Code', 'monospace', monospace"
+>>>>>>> 09cd1b40f5395bd7527b3665602701dbd5c98c63
 }

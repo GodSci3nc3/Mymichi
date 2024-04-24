@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Kiwi Maru', sans-serif;
+    background-color: #FFE8EE;
+    border-top: 52px solid #E998C9;
+    padding: 20px;
+
+    max-height: 100vh;
+
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 90vh;
+}
+
+.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar horizontalmente */
+    width: 90%; 
+    max-width: 800px; 
+}
+
+.titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+h1 {
+    font-size: 120px;
+    color: #5F5FA2;
+    margin: 5vh;
+}
+.register-form {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.input-container {
+    width: calc(33.33% - 10px); 
+    margin-bottom: 20px;
+}
+
+.input-container label {
+    font-size: 20px;
+    color: #5F5FA2;
+}
+
+.input-container input[type="text"],
+.input-container input[type="password"],
+.input-container input[type="date"],
+.input-container input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 20px;
+    background-color: #E998C9;
+    color: #5F5FA2;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+input[type="submit"] {
+    max-width: 250px;
+    padding: 10px;
+    margin: 30px 0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 50px;
+    background-color: #5F5FA2;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.btn_send {
+    width: 60%;
+    justify-content: center;
+    text-align: center;
+}
+
+.login-button {
+    width: 100%;
+    color: #5F5FA2;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 100px;
+    font-size: 19px;
+}
+
+footer {
+    background-color: #E998C9;
+    width: 100%;
+    padding: 15px;
+    
+    font-size: 28px;
+    text-align: center;
+    box-sizing: border-box;
+    color: #5F5FA2;
+    
+    position: fixed;
+    bottom: 0;
+    
+}
+
+@media screen and (min-width: 600px) {
+    .register-form label,
+    .register-form input {
+        width: calc(50% - 10px); 
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .register-form label,
+    .register-form input {
+        width: calc(33.33% - 10px); 
+    }
+}
