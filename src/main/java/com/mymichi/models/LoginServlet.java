@@ -8,7 +8,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,10 +42,21 @@ public class LoginServlet extends HttpServlet {
                 // Datos correctos
                 HttpSession session = request.getSession();
                 session.setAttribute("username", username);
+                // Obtener la foto del usuario
+                InputStream inputStream = resultSet.getBinaryStream("Imagen_Perfil");
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                byte[] buffer = new byte[4096];
+                int bytesRead = -1;
+
+                while ((bytesRead = inputStream.read(buffer)) != -1) {
+                    outputStream.write(buffer, 0, bytesRead);
+                }
+
+                byte[] fotoBytes = outputStream.toByteArray();
+                session.setAttribute("photo", fotoBytes);
                 response.sendRedirect("http://localhost:8080/mymichi/views/feed_view.jsp");
             } else {
                 // Datos incorrectos
-                request.setAttribute("error", "Usuario o contraseña incorrectos");
                 request.getRequestDispatcher("http://localhost:8080/mymichi/views/login_view.jsp").forward(request, response);
             }
         } catch (SQLException e) {

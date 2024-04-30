@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="org.apache.commons.codec.binary.Base64" %>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,6 +15,15 @@
         <div class="border">
             <span>My Michi</span>
         </div>
+
+        <!--Aquí se reciben los datos de registro-->
+        <% 
+        String username = (String)session.getAttribute("username");
+        byte[] photoBytes = (byte[])session.getAttribute("photo");
+        %>
+
+
+
 
         <!--Esta es la barra de navegación-->
         <div class="navbar">
@@ -44,8 +55,8 @@
 
 
             <div class="profile">
-                <h3>Nombre de usuario</h3>
-                <a href="profile_view.jsp"><img src="../assets/profile-photo.png" alt="Foto de perfil" style="width: 80px; border: 2px solid #55589E; border-radius: 505px;"></a>
+                <h3><%=username%></h3>
+                <a href="profile_view.jsp"><img style="width: 80px; border: 2px solid #55589E; border-radius: 505px;" src="data:image/jpeg;base64, <%= new String(org.apache.commons.codec.binary.Base64.encodeBase64(photoBytes)) %>" /></a>
             </div>
         </div>
     </div>
@@ -54,7 +65,7 @@
     <div class="scrollable">
         <!-- Enlace para abrir ventana emergente-->
         <div class="goPublish">
-            <img src="../assets/profile-photo.png" alt="Foto de perfil" style="width: 90px; border: 2px solid #55589E; border-radius: 505px;">
+            <img src="data:image/jpeg;base64, <%= new String(org.apache.commons.codec.binary.Base64.encodeBase64(photoBytes)) %>" alt="Foto de perfil" style="width: 90px; border: 2px solid #55589E; border-radius: 505px;">
             <a href="#" id="openCreatePublishContent" style="text-decoration: none; font-size: 30px; margin-left: 65px;">En que estas pensando?</a>
         </div>
 

@@ -18,8 +18,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.ZoneId;
-
 import com.mymichi.utils.databaseConnection;
 
 
@@ -109,11 +107,25 @@ public class RegisterServlet extends HttpServlet {
 
             if(rows > 0){
                 HttpSession session = request.getSession();
+
+                byte[] imageBytes = null;
+                if (inputStream != null) {
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    byte[] buffer = new byte[1024];
+                    int len;
+                    while ((len = inputStream.read(buffer)) != -1) {
+                        baos.write(buffer, 0, len);
+                    }
+                    imageBytes = baos.toByteArray();
+                    inputStream.close();
+                }
+
+
                 session.setAttribute("username", nombreUsuario);
-                session.setAttribute("photo", inputStream);
+                session.setAttribute("photo", imageBytes);
 
                 
-                response.sendRedirect("feed_view.jsp");
+                response.sendRedirect("http://localhost:8080/mymichi/views/feed_view.jsp");
                 
             }
         } catch (SQLException e) {
