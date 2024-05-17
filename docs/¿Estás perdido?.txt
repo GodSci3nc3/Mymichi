@@ -1,0 +1,6 @@
+¿Dónde encuentro la documentación de este proyecto? No te preocupes, yo te ayudo. 
+La documentación se encuentra dentro del archivo index.jsp. 
+
+Lo ideal para poder comprender este proyecto, es seguir las instrucciones de su instalación, configurando un servidor tomcat para su visualización. 
+
+Al tener un servidor tomcat listo, entra a la url localhost:8080/index.jsp, allí hallarás la documentación actualizada y oficial de este proyecto Mymichi. 

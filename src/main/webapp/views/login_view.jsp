@@ -17,26 +17,24 @@
                 <h2>Inicia Sesion</h2>
             </div>
         </div>
+        <% String errorMessage = (String) request.getAttribute("errorMessage"); %>
+        <% if (errorMessage != null) { %>
+            <div style="color: red; font-weight: bold; margin-bottom: 10px;"><%= errorMessage %></div>
+        <% } %>
         <form class="login-form" action="/mymichi/loginServlet" method="post" enctype="multipart/form-data">
             <label for="usuario" style="font-size: 30px; color: #5F5FA2;">Usuario</label>
             <input type="text" id="usuario" name="usuario"><br>
-            <label for="contraseña" style="font-size: 30px; color: #5F5FA2;">Contrasena</label>
-            <input type="password" id="contraseña"  name = "password"><br>
+            <label for="contraseña" style="font-size: 30px; color: #5F5FA2;">Contraseña</label>
+            <input type="password" id="contraseña" name="password"><br>
             <a class="register-button" href="register_view.jsp">No tienes cuenta? Registrate</a>
             <div class="enviar">
                 <input type="submit" value="Ok" style="font-family: 'Kiwi Maru', sans-serif;">
             </div>
         </form>
     </div>
-    
 </div>
-
-
 <script src="../controllers/js/main.js"></script>
-
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap">
-
-
 </body>
 <!--Este es el pie de página-->
 <footer>

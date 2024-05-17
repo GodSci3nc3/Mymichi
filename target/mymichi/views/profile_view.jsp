@@ -1,3 +1,5 @@
+<%@ page import="java.io.OutputStream, java.util.Base64" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,13 +54,34 @@
 
         <div class="profile-user">
             <div class="user-information">
-                <img src="../assets/profile-photo.png" alt="Foto de perfil">
+                <%
+                // Obtener los atributos de sesión
+                String username = (String) session.getAttribute("username");
+                byte[] photo = (byte[]) session.getAttribute("photo");
+                String correo = (String) session.getAttribute("correo");
+                int edad = (int) session.getAttribute("edad");
+            %>
 
-                <h2>Nombre</h2>
-                <h2>Estado</h2>
-                <h2>Numero de publicaciones</h2>
+            <%
+                String imageDataUri = "";
+                if (photo != null) {
+                    // Convertir los bytes de la imagen a una cadena Base64
+                    String base64Image = Base64.getEncoder().encodeToString(photo);
+                    imageDataUri = "data:image/jpeg;base64," + base64Image;
+                } else {
+                    imageDataUri = "../assets/profile-photo.png";
+                }
+            %>
 
-                <button onclick="window.location.href = 'login_view.jsp'">Cerrar sesion</button>
+            <img src="<%= imageDataUri %>" alt="Foto de perfil">
+
+            <h2><%= username %></h2>
+            <h2><%= correo %></h2>
+            <h2><%= edad %></h2>
+
+                <form action="/mymichi/logoutServlet" method="post">
+                <button type="submit">Cerrar sesion</button>
+            </form>
             </div>
         </div>
 

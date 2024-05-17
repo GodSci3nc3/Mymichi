@@ -72,7 +72,7 @@ public class RegisterServlet extends HttpServlet {
             inputStream = filePart.getInputStream();
         }
 
-        /*Solo para debuguear */
+        /*Solo para debuguear 
         System.out.println("nombre:" + nombre);
         System.out.println("apellido:" + apellido);
         System.out.println("nació en:" + fechaNacimiento);
@@ -81,7 +81,7 @@ public class RegisterServlet extends HttpServlet {
         System.out.println("pass:" + contrasena);
         System.out.println("foto:" + inputStream);
         System.out.println("fecha de registro:" + fechaRegistroTimeStamp);
-        System.out.println("Edad:" + edad);
+        System.out.println("Edad:" + edad);*/
 
         Connection conn = null;
 
@@ -123,9 +123,11 @@ public class RegisterServlet extends HttpServlet {
 
                 session.setAttribute("username", nombreUsuario);
                 session.setAttribute("photo", imageBytes);
+                session.setAttribute("correo", correo);
+                session.setAttribute("edad", edad);
 
                 
-                response.sendRedirect("http://localhost:8080/mymichi/views/feed_view.jsp");
+                response.sendRedirect("views/feed_view.jsp");
                 
             }
         } catch (SQLException e) {

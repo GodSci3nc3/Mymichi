@@ -22,9 +22,6 @@
         byte[] photoBytes = (byte[])session.getAttribute("photo");
         %>
 
-
-
-
         <!--Esta es la barra de navegación-->
         <div class="navbar">
             <ul>
