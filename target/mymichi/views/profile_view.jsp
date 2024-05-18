@@ -55,7 +55,7 @@
         <div class="profile-user">
             <div class="user-information">
                 <%
-                // Obtener los atributos de sesión
+                // Obtener todos los datos del usuario
                 String username = (String) session.getAttribute("username");
                 byte[] photo = (byte[]) session.getAttribute("photo");
                 String correo = (String) session.getAttribute("correo");

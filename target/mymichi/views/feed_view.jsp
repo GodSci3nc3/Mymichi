@@ -16,7 +16,7 @@
             <span>My Michi</span>
         </div>
 
-        <!--Aquí se reciben los datos de registro-->
+        <!--Aquí se reciben los datos de del usuario-->
         <% 
         String username = (String)session.getAttribute("username");
         byte[] photoBytes = (byte[])session.getAttribute("photo");
@@ -53,7 +53,7 @@
 
             <div class="profile">
                 <h3><%=username%></h3>
-                <a href="profile_view.jsp"><img style="width: 80px; border: 2px solid #55589E; border-radius: 505px;" src="data:image/jpeg;base64, <%= new String(org.apache.commons.codec.binary.Base64.encodeBase64(photoBytes)) %>" /></a>
+                <a href="profile_view.jsp"><img style="width: 80px; border: 2px solid #55589E; border-radius: 505px;" src="/mymichi/imageServlet"/></a>
             </div>
         </div>
     </div>
@@ -62,8 +62,8 @@
     <div class="scrollable">
         <!-- Enlace para abrir ventana emergente-->
         <div class="goPublish">
-            <img src="data:image/jpeg;base64, <%= new String(org.apache.commons.codec.binary.Base64.encodeBase64(photoBytes)) %>" alt="Foto de perfil" style="width: 90px; border: 2px solid #55589E; border-radius: 505px;">
-            <a href="#" id="openCreatePublishContent" style="text-decoration: none; font-size: 30px; margin-left: 65px;">En que estas pensando?</a>
+            <img style="width: 90px; border: 2px solid #55589E; border-radius: 505px;" src="/mymichi/imageServlet" href="profile_view.jsp"/>
+            <a id="openCreatePublishContent" style="text-decoration: none; font-size: 30px; margin-left: 65px;">En que estas pensando?</a>
         </div>
 
         <!-- Ventana emergente para CREAR una publicación-->
@@ -72,23 +72,25 @@
 
             <h1>Crear publicacion</h1>
             <div class="createPublishContentForm">
-                <form id="createMyPublish">
+                <form action="/mymichi/newPost" id="createMyPublish" method="post" enctype="multipart/form-data">
+
+                    <!-- Título de la publicación-->
                     <label for="title">Titulo:</label><br>
                     <input type="text" id="title" name="title"><br><br>
-                
+                <!-- Contenido de la publicación-->
                     <label for="content">Contenido:</label><br>
                     <textarea id="content" name="content" rows="4" cols="50"></textarea><br><br>
                 
 
-                
+                <!-- Categoría de la publicación-->
                     <label for="category">Categoria:</label><br>
                     <select id="category" name="category">
-                        <option value="categoria1">Categoria 1</option>
-                        <option value="categoria2">Categoria 2</option>
-                        <option value="categoria3">Categoria 3</option>
+                        <option value="Amigos">Amigos</option>
+                        <option value="Familia">Familia</option>
+                        <option value="Gracioso">Gracioso</option>
                         <!-- Aquí se pueden agregar más opciones de categorías -->
                     </select><br><br>
-                
+                <!-- Insertar una imagen para laDESCRIBE publicación; publicación-->
                     <label for="image">Imagen:</label><br>
                     <input type="file" id="image" name="image"><br><br>
 

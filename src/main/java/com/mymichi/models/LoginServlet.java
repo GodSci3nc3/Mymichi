@@ -20,7 +20,8 @@ import com.mymichi.utils.databaseConnection;
 @WebServlet("/loginServlet")
 @MultipartConfig
 public class LoginServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         String username = request.getParameter("usuario");
         String password = request.getParameter("password");
         Connection conn = null;
@@ -32,7 +33,7 @@ public class LoginServlet extends HttpServlet {
             statement.setString(2, password);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                // Datos correctos
+                // Datos correctos:
                 HttpSession session = request.getSession();
                 // 1. Se guarda el nombre de usuario en session
                 session.setAttribute("username", username);
@@ -46,16 +47,32 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("correo", correo);
 
                 // 4. Obtener la foto del usuario
-                InputStream inputStream = resultSet.getBinaryStream("Imagen_Perfil");
-                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-                byte[] buffer = new byte[4096];
-                int bytesRead = -1;
-                while ((bytesRead = inputStream.read(buffer)) != -1) {
-                    outputStream.write(buffer, 0, bytesRead);
+                InputStream inputStream = null;
+                ResultSet rs = null;
+                ByteArrayOutputStream outputStream = null;
+
+                try {
+                    inputStream = resultSet.getBinaryStream("Imagen_Perfil");
+                    outputStream = new ByteArrayOutputStream();
+                    byte[] buffer = new byte[4096];
+                    int bytesRead = -1;
+                    while ((bytesRead = inputStream.read(buffer)) != -1) {
+                        outputStream.write(buffer, 0, bytesRead);
+                    }
+                    byte[] fotoBytes = outputStream.toByteArray();
+                    // 5. Se guarda la foto en session
+                    session.setAttribute("photo", fotoBytes);
+                } finally {
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                    if (resultSet != null) {
+                        resultSet.close();
+                    }
+                    if (outputStream != null) {
+                        outputStream.close();
+                    }
                 }
-                byte[] fotoBytes = outputStream.toByteArray();
-                // 5. Se guarda la foto en session
-                session.setAttribute("photo", fotoBytes);
 
                 response.sendRedirect("http://localhost:8080/mymichi/views/feed_view.jsp");
             } else {
