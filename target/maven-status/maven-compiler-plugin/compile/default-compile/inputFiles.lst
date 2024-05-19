@@ -1,6 +1,8 @@
 /home/arthur/Desktop/Mymichi/src/main/java/com/mymichi/models/RegisterServlet.java
 /home/arthur/Desktop/Mymichi/src/main/java/com/mymichi/models/LogoutServlet.java
 /home/arthur/Desktop/Mymichi/src/main/java/com/mymichi/models/LoginServlet.java
+/home/arthur/Desktop/Mymichi/src/main/java/com/mymichi/models/GetMyPost.java
+/home/arthur/Desktop/Mymichi/src/main/java/com/mymichi/models/checkNewPost.java
 /home/arthur/Desktop/Mymichi/src/main/java/com/mymichi/utils/databaseConnection.java
 /home/arthur/Desktop/Mymichi/src/main/java/com/mymichi/models/NewPublication.java
 /home/arthur/Desktop/Mymichi/src/main/java/com/mymichi/utils/Publicacion.java

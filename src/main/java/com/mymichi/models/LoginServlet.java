@@ -46,9 +46,12 @@ public class LoginServlet extends HttpServlet {
                 String correo = resultSet.getString("Correo");
                 session.setAttribute("correo", correo);
 
-                // 4. Obtener la foto del usuario
+                // 4. Se guarda el id del usuario en session 
+                int id_usuario = resultSet.getInt("ID_Usuario");
+                session.setAttribute("idUsuario", id_usuario);
+
+                // 5. Obtener la foto del usuario
                 InputStream inputStream = null;
-                ResultSet rs = null;
                 ByteArrayOutputStream outputStream = null;
 
                 try {
@@ -60,8 +63,10 @@ public class LoginServlet extends HttpServlet {
                         outputStream.write(buffer, 0, bytesRead);
                     }
                     byte[] fotoBytes = outputStream.toByteArray();
-                    // 5. Se guarda la foto en session
+                    // 6. Se guarda la foto en session
                     session.setAttribute("photo", fotoBytes);
+
+
                 } finally {
                     if (inputStream != null) {
                         inputStream.close();
