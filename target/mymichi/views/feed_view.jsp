@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
+<%@ page import="java.util.List, com.mymichi.utils.Publicacion"%>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -139,51 +141,39 @@
             
 
 
-        <div class="publications">
-            <div class="publication-contents">
-                <div class="user-publication">
-                    <img src="../assets/profile-photo.png" alt="Foto" style="width: 80px; border-radius: 505px;">
-                    <h3 style="margin-left: 10px;">Nombre del usuario</h3>
-                </div>
-                <h2>Titulo de la publicacion</h2>
-                <a href="#">Categoria Ejemplo</a>
-
-
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus, odio cum soluta, esse mollitia possimus accusantium, dolorum nulla amet iste aut sed 
-                    deleniti vel tenetur sequi dolorem. Maiores, aspernatur corporis?</p>
-
-
-                    <img src="../assets/publication_photo_example.png" style="width: min-content; height: min-content; margin: 0 auto;">
-                </div>
+            <div class="publications">
+                <%
+                    List<Publicacion> publicaciones = (List<Publicacion>) session.getAttribute("publicaciones");
+                        if (publicaciones != null) {
+                        for (Publicacion publicacion : publicaciones) {
+                %>
                 <div class="publication-contents">
                     <div class="user-publication">
-                        <img src="../assets/profile-photo2.png" alt="Foto" style="width: 80px; border-radius: 505px;">
-                        <h3 style="margin-left: 10px;">Nombre del usuario</h3>
+                        <%
+                            if (publicacion.getImagenUsuario() != null) {
+                                String imageDataUri = "data:image/jpeg;base64," + java.util.Base64.getEncoder().encodeToString(publicacion.getImagenUsuario());
+                                %>
+                        <img src="<%= imageDataUri %>" alt="Foto de perfil" style="width: 80px; border-radius: 505px;">
+                        <% } else { %>
+                        <img src="../assets/profile-photo.png" alt="Foto de perfil" style="width: 80px; border-radius: 505px;">
+                        <% } %>
+                        <h3 style="margin-left: 10px;"><%= publicacion.getNombreUsuario() %></h3>
                     </div>
-
-                    <a href="#">Categoria Ejemplo</a>
-
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus, odio cum soluta, esse mollitia possimus accusantium, dolorum nulla amet iste aut sed 
-                        deleniti vel tenetur sequi dolorem. Maiores, aspernatur corporis?</p>
-    
-    
-                        <img src="../assets/publication_photo_example2.png" style="width: min-content; height: min-content; margin: 0 auto;">
-                    </div>
-                    <div class="publication-contents">
-                        <div class="user-publication">
-                            <img src="../assets/profile-photo.png" alt="Foto" style="width: 80px; border-radius: 505px;">
-                            <h3 style="margin-left: 10px;">Nombre del usuario</h3>
-                        </div>
-
-                        <a href="#">Categoria Ejemplo</a>
-
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus, odio cum soluta, esse mollitia possimus accusantium, dolorum nulla amet iste aut sed 
-                            deleniti vel tenetur sequi dolorem. Maiores, aspernatur corporis?</p>
-        
-        
-                            <img src="../assets/publication_photo_example.png" style="width: min-content; height: min-content; margin: 0 auto;">
-                        </div>
-        </div>
+                    <h2><%= publicacion.getTitulo() %></h2>
+                    <a href="#"><%= publicacion.getCategoria() %></a>
+                    <p><%= publicacion.getContenido() %></p>
+                    <%
+                        if (publicacion.getImagen() != null) {
+                            String imageDataUriPublication = "data:image/jpeg;base64," + java.util.Base64.getEncoder().encodeToString(publicacion.getImagen());
+                            %>
+                    <img src="<%= imageDataUriPublication %>" style="width: 350px; height: 250px; margin: 0 auto;">
+                    <% } %>
+                </div>
+                <% }
+                } else{
+                    response.sendRedirect("/mymichi/getPost"); 
+                } %>
+            </div>
         <div class="pages">
             <a href="#">1</a>
             <a href="#">2</a>

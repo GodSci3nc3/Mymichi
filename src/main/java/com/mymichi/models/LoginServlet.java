@@ -74,7 +74,7 @@ public class LoginServlet extends HttpServlet {
                     }
                 }
 
-                response.sendRedirect("http://localhost:8080/mymichi/views/feed_view.jsp");
+                response.sendRedirect("getPost");
             } else {
                 // Datos incorrectos
                 request.setAttribute("errorMessage", "Nombre de usuario o contraseña incorrectos");

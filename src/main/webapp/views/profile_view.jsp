@@ -73,7 +73,7 @@
                 }
             %>
 
-            <img src="<%= imageDataUri %>" alt="Foto de perfil">
+            <img src="<%= imageDataUri %>" style="width: 300px; height: 300px;" alt="Foto de perfil">
 
             <h2><%= username %></h2>
             <h2><%= correo %></h2>

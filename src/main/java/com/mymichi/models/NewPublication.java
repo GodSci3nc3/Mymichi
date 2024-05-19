@@ -33,7 +33,6 @@ public class NewPublication extends HttpServlet {
         String contenido = request.getParameter("content");
         String categoria = request.getParameter("category");
 
-        System.out.println("Antes de ejecutar la consulta SQL");
 
         // Se extrae la imagen
         Part filePart = request.getPart("image");
@@ -42,7 +41,6 @@ public class NewPublication extends HttpServlet {
             inputStream = filePart.getInputStream();
         }
 
-        System.out.println("Después de extraer la imagen");
 
         Connection conn = null;
         try {
@@ -56,6 +54,9 @@ public class NewPublication extends HttpServlet {
 
             // Obtener el id_categoria
             int idCategoria = obtenerIdCategoria(conn, categoria);
+
+            System.out.println("Antes de realizar la consulta");
+
 
             String sql = "INSERT INTO publicación (Titulo, Contenido, ID_Categoria, Imagen, ID_Usuario, Estado) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(sql);

@@ -3,4 +3,6 @@
 /home/arthur/Desktop/Mymichi/src/main/java/com/mymichi/models/LoginServlet.java
 /home/arthur/Desktop/Mymichi/src/main/java/com/mymichi/utils/databaseConnection.java
 /home/arthur/Desktop/Mymichi/src/main/java/com/mymichi/models/NewPublication.java
+/home/arthur/Desktop/Mymichi/src/main/java/com/mymichi/utils/Publicacion.java
+/home/arthur/Desktop/Mymichi/src/main/java/com/mymichi/models/getPostsServlet.java
 /home/arthur/Desktop/Mymichi/src/main/java/com/mymichi/models/ImageServlet.java

@@ -145,7 +145,7 @@ public class RegisterServlet extends HttpServlet {
                 session.setAttribute("correo", correo);
                 session.setAttribute("edad", edad);
 
-                response.sendRedirect("views/feed_view.jsp");
+                response.sendRedirect("getPost");
             }
         } catch (SQLException e) {
             e.printStackTrace();
